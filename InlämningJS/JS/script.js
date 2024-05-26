@@ -19,15 +19,22 @@ function displayUserData(user) {
 
     // Extraherar relevant användarinformation
     let userPicture = user.picture.large;
+    let userGender = user.gender;
     let userfNamn = user.name.first;
     let userlNamn = user.name.last;
-    let userEmail = user.email;
     let userPhone = user.phone;
-    let userGender = user.gender;
+    let userEmail = user.email;
+    
+    
 
     // Skapar ett element för användarens bild
     let pictureElement = document.createElement('img');
     pictureElement.src = userPicture;
+
+    // Skapar ett element för användarens kön
+    let genElement = document.createElement('main');
+    genElement.textContent = `Kön: \r\n`;
+    genElement.textContent += `${userGender}`;
 
     // Skapar ett element för användarens förnamn
     let forNamnElement = document.createElement('main');
@@ -39,26 +46,23 @@ function displayUserData(user) {
     efterNamnElement.textContent = `Efternamn: \r\n`;
     efterNamnElement.textContent += `${userlNamn}`;
 
-    // Skapar ett element för användarens mejladress
-    let mejlElement = document.createElement('main');
-    mejlElement.textContent = `Mejladress: \r\n`;
-    mejlElement.textContent += `${userEmail}`;
-
     // Skapar ett element för användarens telefonnummer
     let telefonElement = document.createElement('main');
     telefonElement.textContent = `Telefonnummer: \r\n`;
     telefonElement.textContent += `${userPhone}`;
 
-    // Skapar ett element för användarens kön
-    let genElement = document.createElement('main');
-    genElement.textContent = `Kön: \r\n`;
-    genElement.textContent += `${userGender}`;
+    // Skapar ett element för användarens mejladress
+    let mejlElement = document.createElement('main');
+    mejlElement.textContent = `Mejladress: \r\n`;
+    mejlElement.textContent += `${userEmail}`;
 
     // Lägger till alla skapade element i userInfoMain
     userInfoMain.appendChild(pictureElement);
+    userInfoMain.appendChild(genElement);
     userInfoMain.appendChild(forNamnElement);
     userInfoMain.appendChild(efterNamnElement);
-    userInfoMain.appendChild(mejlElement);
     userInfoMain.appendChild(telefonElement);
-    userInfoMain.appendChild(genElement);
+    userInfoMain.appendChild(mejlElement);
+    
+    
 }
